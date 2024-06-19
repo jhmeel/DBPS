@@ -1,0 +1,45 @@
+    ipLists:
+    whitelist:
+      - 192.168.1.100
+      - 10.0.0.1
+    blacklist:
+      - 172.16.0.10
+  
+    encryption:
+     encryptionKey: your-secret-encryption-key
+     encryptionAlgorithm: aes-256-cbc
+  
+    policies:
+    - name: PII Protection
+      description: Protect Personally Identifiable Information (PII)
+      rules:
+        - name: Detect SSN
+          pattern: \b\d{3}-\d{2}-\d{4}\b
+          action: encrypt
+        - name: Detect Credit Card Numbers
+          pattern: \b\d{4}[\s-]?\d{4}[\s-]?\d{4}[\s-]?\d{4}\b
+          action: encrypt
+  
+    - name: Financial Data Protection
+      description: Protect financial data
+      rules:
+        - name: Detect Bank Account Numbers
+          pattern: \b\d{9,17}\b
+          action: block
+  
+    - name: IP Protection
+      description: Protect intellectual property
+      rules:
+        - name: Detect Source Code
+          pattern: \.(?:js|py|java|cpp|cs|php)
+          action: quarantine
+  
+    - name: Network Intrusion Detection
+      description: Detect and block network intrusion attempts
+      rules:
+        - name: Detect SQL Injection
+          pattern: SELECT.*?FROM.*?\b(?:information_schema|mysql|performance_schema|sys|pg_catalog)\b
+          action: block
+        - name: Detect XSS Attack
+          pattern: /<script>|<\/script>|<script\b[^<>]*>[^<>]*<\/script>/i
+          action: block

@@ -1,0 +1,93 @@
+@font-face {
+  font-family: 'Zeitung';
+  src: local('Zeitung Bold'), url('./assets/Zeitung_Pro_Black.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Zeitung';
+  src: local('Zeitung Regular'), url('./assets/ZeitungPro-Regular.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  color: rgb(32, 32, 32);
+}
+:root {
+  font-family: "Proxima Nova", sans-serif;
+  line-height: 1.5;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+a {
+  text-decoration: none;
+}
+
+body {
+  background-color: #ffffff;
+}
+
+
+button {
+  padding: 6px 12px;
+  background-color: rgb(33, 119, 157);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+button:hover {
+  transition: 200ms ease-in-out;
+  transform: scale(1.01);
+}
+
+h1,
+h2,
+h3 {
+  color: rgb(0, 0, 0);
+}
+
+
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loader {
+  fill:#fff;
+  animation: spin 2s infinite;
+}
+
+@media(max-width:767px){
+  ::-webkit-scrollbar{
+    display:none;
+}
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background: #dddddd;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #075968;
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #046881;
+}
